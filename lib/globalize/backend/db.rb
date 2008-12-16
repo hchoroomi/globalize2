@@ -10,8 +10,8 @@ module Globalize
       def init_translations
         @translations = Hash.new
         DbTranslationLocale.all.each do |locale|
-          @translations[locale.locale.to_sym] = locale.translation_hash
-          I18n.fallbacks.map locale.locale.to_sym => locale.parent.locale.to_sym unless locale.parent.nil?
+          @translations[locale.language_tag.to_sym] = locale.translation_hash
+          I18n.fallbacks.map locale.language_tag.to_sym => locale.parent.language_tag.to_sym unless locale.parent.nil?
         end
         @initialized = true
       end

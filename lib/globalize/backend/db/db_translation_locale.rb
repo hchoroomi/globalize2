@@ -22,4 +22,8 @@ class DbTranslationLocale < ActiveRecord::Base
     end
     @hash
   end
+  
+  def language_tag
+    "#{locale}-x-#{id}"
+  end
 end
