@@ -77,6 +77,12 @@ module Globalize
         end
       end
     
+      def reload!
+        backends.each do |backend|
+          backend.reload!
+        end
+      end
+
       protected
         def backends
           @backends ||= []
