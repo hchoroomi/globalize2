@@ -5,4 +5,9 @@ class DbTranslation < ActiveRecord::Base
   validates_presence_of :key
   validates_presence_of :value
   validates_uniqueness_of :key, :scope => :locale_id
+  
+  after_save do |record|
+    record.locale.updated_at_will_change!
+    record.locale.save(false)
+  end
 end
