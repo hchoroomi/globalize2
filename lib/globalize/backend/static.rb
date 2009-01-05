@@ -46,6 +46,8 @@ module Globalize
             result.map do |value|
               translation(value, meta)
             end
+          when Symbol
+            result
           else
             raise "unexpected translation type: #{result.inspect}"
           end
