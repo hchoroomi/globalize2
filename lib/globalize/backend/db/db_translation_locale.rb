@@ -1,7 +1,7 @@
 class DbTranslationLocale < ActiveRecord::Base
-  set_table_name "translation_locales"
+  set_table_name "globalize_translation_locales"
   acts_as_tree
-  belongs_to :creator, :class_name => "User", :foreign_key => "user_id"
+  #belongs_to :creator, :class_name => "User", :foreign_key => "user_id"
   has_many :translations, :class_name => "DbTranslation", :foreign_key => "locale_id", :dependent => :destroy
   
   validates_presence_of :locale

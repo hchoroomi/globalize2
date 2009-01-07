@@ -1,0 +1,5 @@
+Description:
+    Generates migrations for globalize2
+
+Examples:
+    ./script/generate db_backend
